@@ -1,0 +1,96 @@
+{
+  "name": "link",
+  "private": true,
+  "description": "URL Shortener & Link Management",
+  "version": "0.0.0",
+  "bugs": "https://github.com/escapace/link/issues",
+  "dependencies": {
+    "core-js": "^3.5.0",
+    "lodash": "^4.17.15",
+    "punycode": "^2.1.1",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/plugin-proposal-unicode-property-regex": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "@cloudflare/workers-types": "^1.0.6",
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "12.12.17",
+    "@types/punycode": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "2.11.0",
+    "@typescript-eslint/parser": "2.11.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-lodash": "^3.3.4",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "eslint": "6.7.2",
+    "eslint-config-escapace": "2.0.3",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-config-standard-with-typescript": "11.0.1",
+    "eslint-plugin-import": "2.19.1",
+    "eslint-plugin-jsdoc": "18.4.3",
+    "eslint-plugin-no-null": "1.0.2",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "husky": "3.1.0",
+    "lint-staged": "9.5.0",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.0",
+    "source-map-loader": "^0.2.4",
+    "source-map-support": "^0.5.16",
+    "syncpack": "4.5.4",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.4",
+    "typescript": "3.7.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "engines": {
+    "node": ">=10.16.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/escapace/link",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged && npm run typecheck && npm run test"
+    }
+  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "package.json": [
+      "syncpack-format --source",
+      "syncpack-set-semver-ranges --dev --source",
+      "git add"
+    ],
+    "{src,examples,perf}/**/*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "{src,examples,perf}/**/*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": "escapace/link",
+  "scripts": {
+    "lint": "eslint 'src/**/*.ts'",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"No tests yet\"",
+    "preview": "wrangler preview",
+    "publish": "cross-env NODE_ENV=production wrangler publish"
+  }
+}

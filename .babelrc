@@ -1,0 +1,23 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "corejs": 3,
+        "useBuiltIns": "entry",
+        "exclude": [
+          "@babel/plugin-transform-regenerator"
+        ]
+      }
+    ]
+  ],
+  "plugins": [
+    "babel-plugin-lodash",
+    "@babel/plugin-proposal-object-rest-spread",
+    [
+      "@babel/plugin-proposal-unicode-property-regex",
+      { "useUnicodeFlag": false }
+    ]
+  ]
+}

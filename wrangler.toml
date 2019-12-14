@@ -1,0 +1,7 @@
+account_id = "YOUR_ACCOUNT_ID"
+name = "link"
+type = "webpack"
+workers_dev = true
+webpack_config = "webpack.config.js"
+kv-namespaces = []
+
