@@ -6,7 +6,7 @@
   "bugs": "https://github.com/escapace/link/issues",
   "dependencies": {
     "core-js": "^3.5.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "punycode": "^2.1.1",
     "tslib": "^1.10.0"
   },
